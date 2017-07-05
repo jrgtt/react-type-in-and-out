@@ -1,0 +1,8 @@
+{
+  "name": "react-type-in-and-out",
+  "version": "0.1.0",
+  "description": "Type in and out effect",
+  "main": "index.js",
+  "author": "Jean Rigotti <jean.m.rigotti@gmail.com>",
+  "license": "MIT"
+}
