@@ -1,0 +1,29 @@
+{
+  "name": "react-type-in-and-out",
+  "version": "0.0.0",
+  "description": "ReactTypeInAndOut",
+  "main": "dist/react-type-in-and-out.min.js",
+  "homepage": "https://github.com/JRigotti/react-type-in-and-out",
+  "authors": [
+    "Jean Rigotti"
+  ],
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "react",
+    "react-component"
+  ],
+  "license": "MIT",
+  "ignore": [
+    ".editorconfig",
+    ".gitignore",
+    "package.json",
+    "src",
+    "node_modules",
+    "example",
+    "test"
+  ]
+}
