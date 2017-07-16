@@ -6,7 +6,7 @@ var App = React.createClass({
 	render () {
 		return (
 			<div>
-				<ReactTypeInAndOut />
+			    <ReactTypeInAndOut words={['react', 'type', 'in', 'and', 'out']} />
 			</div>
 		);
 	}
