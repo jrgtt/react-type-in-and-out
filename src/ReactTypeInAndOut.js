@@ -9,7 +9,10 @@ class ReactTypeInAndOut extends React.Component {
 
         words = words.reduce((acc, word) => {
 
-            var forwards = word.split('').map((lc, lIdx, lw) => {
+            // include empty string as start/end
+            word = [''].concat(word.split(''));
+
+            var forwards = word.map((lc, lIdx, lw) => {
                 return lw.slice(0, lIdx + 1).join('');
             });
 
