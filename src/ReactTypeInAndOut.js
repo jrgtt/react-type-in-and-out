@@ -23,25 +23,35 @@ class ReactTypeInAndOut extends React.Component {
         }, []);
 
         this.state = {
-            words: words,
-            currentWordIdx: 0
+            words: words
         };
     }
 
     componentDidMount () {
         var words = this.state.words;
 
-        this.inter = setInterval(() => {
-            var newIdx = (this.state.currentWordIdx + 1) % words.length;
-            this.setState({
-                currentWordIdx: newIdx
+        words.reduce((acc, word) => {
+
+            return acc.then(() => {
+
+                return new Promise((resolve) => {
+
+                    setTimeout(() => {
+                        this.setState({
+                            currentWord: word
+                        });
+                        resolve(word);
+                    }, 200);
+
+                });
+
             });
-        }, 200);
+
+        }, Promise.resolve());
     }
 
     render () {
-        var currentWord = this.state.words[this.state.currentWordIdx];
-
+        var currentWord = this.state.currentWord;
         return <div>{currentWord}</div>;
     }
 }
