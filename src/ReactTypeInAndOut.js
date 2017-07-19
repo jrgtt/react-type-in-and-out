@@ -38,7 +38,8 @@ class ReactTypeInAndOut extends React.Component {
 
             start = (start + 1) % words.length;
 
-            if (start === 0) {
+            // avoid getting inside this loop if no repeating delay is provided
+            if (this.props.delayRepeat > 0 && start === 0) {
                 clearInterval(running);
                 setTimeout(this.startTyping.bind(this, words), this.props.delayRepeat);
             }
@@ -47,7 +48,9 @@ class ReactTypeInAndOut extends React.Component {
     }
 
     componentDidMount () {
-        this.startTyping(this.state.words);
+        setTimeout(() => {
+            this.startTyping(this.state.words);
+        }, this.props.delayStart);
     }
 
     render () {
@@ -59,12 +62,14 @@ class ReactTypeInAndOut extends React.Component {
 ReactTypeInAndOut.propTypes = {
     words: React.PropTypes.arrayOf(React.PropTypes.string),
     speed: React.PropTypes.number,
-    delayRepeat: React.PropTypes.number
+    delayRepeat: React.PropTypes.number,
+    delayStart: React.PropTypes.number
 };
 
 ReactTypeInAndOut.defaultProps = {
     speed: 200,
-    delayRepeat: 0
+    delayRepeat: 0,
+    delayStart: 0
 };
 
 export default ReactTypeInAndOut;
