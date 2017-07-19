@@ -1,4 +1,5 @@
 var React = require('react');
+var { Repeat } = require('Immutable');
 
 class ReactTypeInAndOut extends React.Component {
 
@@ -29,25 +30,17 @@ class ReactTypeInAndOut extends React.Component {
 
     componentDidMount () {
         var words = this.state.words;
+        var start = 0;
 
-        words.reduce((acc, word) => {
+        var running = setInterval(() => {
 
-            return acc.then(() => {
-
-                return new Promise((resolve) => {
-
-                    setTimeout(() => {
-                        this.setState({
-                            currentWord: word
-                        });
-                        resolve(word);
-                    }, 200);
-
-                });
-
+            this.setState({
+                currentWord: words[start]
             });
 
-        }, Promise.resolve());
+            start = (start + 1) % words.length;
+
+        }, 200);
     }
 
     render () {
