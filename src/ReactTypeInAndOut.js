@@ -40,7 +40,7 @@ class ReactTypeInAndOut extends React.Component {
 
             start = (start + 1) % words.length;
 
-        }, 200);
+        }, this.props.speed);
     }
 
     render () {
@@ -50,7 +50,12 @@ class ReactTypeInAndOut extends React.Component {
 }
 
 ReactTypeInAndOut.propTypes = {
-    words: React.PropTypes.arrayOf(React.PropTypes.string)
+    words: React.PropTypes.arrayOf(React.PropTypes.string),
+    speed: React.PropTypes.number
+};
+
+ReactTypeInAndOut.defaultProps = {
+    speed: 200
 };
 
 export default ReactTypeInAndOut;
