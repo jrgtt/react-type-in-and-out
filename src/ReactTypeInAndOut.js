@@ -1,5 +1,4 @@
 var React = require('react');
-var { Repeat } = require('Immutable');
 
 class ReactTypeInAndOut extends React.Component {
 
