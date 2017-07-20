@@ -10,30 +10,27 @@ class ReactTypeInAndOut extends React.Component {
         words = words.reduce((acc, word) => {
 
             // include empty string as start/end
-            word = [''].concat(word.split(''));
+            var charlist = [''].concat(word.split(''));
 
-            var forwards = word.map((lc, lIdx, lw) => {
+            var forwards = charlist.slice(0, -1).map((lc, lIdx, lw) => {
                 return lw.slice(0, lIdx + 1).join('');
             });
 
-            var backwards = forwards.slice(0, -1).reverse();
+            var backwards = forwards.slice(1).reverse();
 
-            return acc.concat(forwards, backwards);
+            return acc.concat(forwards, [word], backwards);
 
         }, []);
 
         this.state = {
-            words: words
+            words: words,
+            currentWord: words[0]
         };
     }
 
     startTyping (words) {
         var start = 0;
         var running = setInterval(() => {
-
-            this.setState({
-                currentWord: words[start]
-            });
 
             start = (start + 1) % words.length;
 
@@ -42,6 +39,10 @@ class ReactTypeInAndOut extends React.Component {
                 clearInterval(running);
                 setTimeout(this.startTyping.bind(this, words), this.props.delayRepeat);
             }
+
+            this.setState({
+                currentWord: words[start]
+            });
 
         }, this.props.speed);
     }
