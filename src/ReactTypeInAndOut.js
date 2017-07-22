@@ -55,7 +55,12 @@ class ReactTypeInAndOut extends React.Component {
 
     render () {
         var currentWord = this.state.currentWord;
-        return <div>{currentWord}</div>;
+        return (
+                <div>
+                <label className="target">{currentWord}</label>
+                <span className={'react-rotating-text-cursor'}>|</span>
+                </div>
+        );
     }
 }
 
