@@ -41,13 +41,13 @@ var ReactTypeInAndOut = require('react-type-in-and-out');
 ### Properties
 
 | Property          | Type    | Default                 | Description                                |
-|-------------------+---------+-------------------------+--------------------------------------------|
+|-------------------|---------|-------------------------|--------------------------------------------|
 | words             | Array   | []                      | The list of words that are going to rotate |
 | speed             | int     | 150                     | The typing speed of the text               |
 | delayRestart      | int     | 0                       | The interval before the list starts again  |
 | delayStart        | int     | 0                       | The delay before the typing starts         |
 | delayOnWordFinish | int     | 0                       | The delay at the end of a fully typed word |
-| showCursor        | boolean | true                    | Show cursor in the at the end of the text  |
+| showCursor        | boolean | true                    | Show cursor at the end of the text         |
 | startFullWord     | boolean | false                   | Start component will full word displayed   |
 | className         | string  | 'react-type-in-and-out' | The `class` attribute of the component     |
 
@@ -55,7 +55,9 @@ var ReactTypeInAndOut = require('react-type-in-and-out');
 ### Notes
 
 * The cursor blinking effect is acquired though css, this project comes with an implementation which you can get at `src/ReactTypeInAndOut.css`
-* The cursor contains by default the classes `props.className + '__icon'` and `props.className + '__icon--animated'` the last one is applied when one of the delays are triggered, in order to start animating it.
+* `className + '__icon'` by default `'react-type-in-and-out__icon'` is the class of the icon
+* `className + '__icon--animated'` by default `'react-type-in-and-out__icon--animated'` is an added class to the icon when the cursor starts blinking
+* Speed and delay properties are all in milliseconds
 
 
 ## Development (`src`, `lib` and the build process)
