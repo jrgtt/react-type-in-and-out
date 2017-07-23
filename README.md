@@ -1,6 +1,6 @@
 # ReactTypeInAndOut
 
-__COMPONENT DESCRIPTION GOES HERE__
+__Component to simulate the effect of typing in and typing out of a text__
 
 
 ## Demo & Examples
@@ -35,7 +35,7 @@ __EXPLAIN USAGE HERE__
 ```
 var ReactTypeInAndOut = require('react-type-in-and-out');
 
-<ReactTypeInAndOut>Example</ReactTypeInAndOut>
+<ReactTypeInAndOut />
 ```
 
 ### Properties
@@ -58,4 +58,3 @@ To build, watch and serve the examples (which will also watch the component sour
 __PUT LICENSE HERE__
 
 Copyright (c) 2017 Jean Rigotti.
-
