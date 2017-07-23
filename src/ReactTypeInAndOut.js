@@ -63,10 +63,10 @@ class ReactTypeInAndOut extends React.Component {
     render () {
         var currentWord = this.state.currentWord;
         return (
-                <div>
-                <label className="target">{currentWord}</label>
-                {this.props.showCursor && <span className="react-rotating-text-cursor">|</span>}
-                </div>
+            <span className={this.props.className}>
+              {currentWord}
+              {this.props.showCursor && <span className={this.props.className + "__icon"}>|</span>}
+            </span>
         );
     }
 }
@@ -77,7 +77,8 @@ ReactTypeInAndOut.propTypes = {
     delayRepeat: React.PropTypes.number,
     delayStart: React.PropTypes.number,
     delayOnWordFinish: React.PropTypes.number,
-    showCursor: React.PropTypes.bool
+    showCursor: React.PropTypes.bool,
+    className: React.PropTypes.string
 };
 
 ReactTypeInAndOut.defaultProps = {
@@ -85,7 +86,8 @@ ReactTypeInAndOut.defaultProps = {
     delayRepeat: 2000,
     delayStart: 0,
     delayOnWordFinish: 2000,
-    showCursor: true
+    showCursor: true,
+    className: 'react-type-in-and-out'
 };
 
 export default ReactTypeInAndOut;
