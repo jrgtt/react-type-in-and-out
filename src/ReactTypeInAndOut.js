@@ -58,16 +58,25 @@ class ReactTypeInAndOut extends React.Component {
                 cursorAnimated = true;
             }
 
-            this.setState({
-                currentWord: words[start],
-                start: start,
-                cursorAnimated: cursorAnimated
-            });
+            // this is an important flag to avoid firing a setState when component is unmounted
+            if (this._componentMounted) {
+                this.setState({
+                    currentWord: words[start],
+                    start: start,
+                    cursorAnimated: cursorAnimated
+                });
+            }
 
         }, this.props.speed);
     }
 
+    componentWillUnmount () {
+        this._componentMounted = false;
+    }
+
     componentDidMount () {
+        this._componentMounted = true;
+
         setTimeout(() => {
             this.startTyping(this.state.words);
         }, this.props.delayStart);
