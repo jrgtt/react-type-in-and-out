@@ -25,7 +25,8 @@ class ReactTypeInAndOut extends React.Component {
         this.state = {
             words: words,
             currentWord: words[0],
-            start: 0
+            start: 0,
+            cursorAnimated: !!this.props.delayStart
         };
     }
 
@@ -33,22 +34,26 @@ class ReactTypeInAndOut extends React.Component {
         var start = this.state.start;
         var running = setInterval(() => {
 
+            var cursorAnimated = false;
             start = (start + 1) % words.length;
 
             // avoid getting inside this loop if no repeating delay is provided
             if (this.props.delayRepeat > 0 && start === 0) {
                 clearInterval(running);
                 setTimeout(this.startTyping.bind(this, words), this.props.delayRepeat);
+                cursorAnimated = true;
 
             // delay when word is fully typed and will regress
             } else if (this.props.delayOnWordFinish && start > 1 && words[start - 1] === words[start + 1]) {
                 clearInterval(running);
                 setTimeout(this.startTyping.bind(this, words), this.props.delayOnWordFinish);
+                cursorAnimated = true;
             }
 
             this.setState({
                 currentWord: words[start],
-                start: start
+                start: start,
+                cursorAnimated: cursorAnimated
             });
 
         }, this.props.speed);
@@ -62,10 +67,19 @@ class ReactTypeInAndOut extends React.Component {
 
     render () {
         var currentWord = this.state.currentWord;
+        var className = this.props.className;
+        var cursorClassName = className + '__icon';
+
+        if (this.state.cursorAnimated) {
+            console.log('here??');
+            cursorClassName = cursorClassName + ' ' + cursorClassName + '--animated';
+        }
+        console.log(cursorClassName);
+
         return (
-            <span className={this.props.className}>
+            <span className={className}>
               {currentWord}
-              {this.props.showCursor && <span className={this.props.className + "__icon"}>|</span>}
+              {this.props.showCursor && <span className={cursorClassName}>|</span>}
             </span>
         );
     }
