@@ -71,10 +71,8 @@ class ReactTypeInAndOut extends React.Component {
         var cursorClassName = className + '__icon';
 
         if (this.state.cursorAnimated) {
-            console.log('here??');
             cursorClassName = cursorClassName + ' ' + cursorClassName + '--animated';
         }
-        console.log(cursorClassName);
 
         return (
             <span className={className}>
