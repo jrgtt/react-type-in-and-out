@@ -38,9 +38,9 @@ class ReactTypeInAndOut extends React.Component {
             start = (start + 1) % words.length;
 
             // avoid getting inside this loop if no repeating delay is provided
-            if (this.props.delayRepeat > 0 && start === 0) {
+            if (this.props.delayRestart > 0 && start === 0) {
                 clearInterval(running);
-                setTimeout(this.startTyping.bind(this, words), this.props.delayRepeat);
+                setTimeout(this.startTyping.bind(this, words), this.props.delayRestart);
                 cursorAnimated = true;
 
             // delay when word is fully typed and will regress
@@ -86,7 +86,7 @@ class ReactTypeInAndOut extends React.Component {
 ReactTypeInAndOut.propTypes = {
     words: React.PropTypes.arrayOf(React.PropTypes.string),
     speed: React.PropTypes.number,
-    delayRepeat: React.PropTypes.number,
+    delayRestart: React.PropTypes.number,
     delayStart: React.PropTypes.number,
     delayOnWordFinish: React.PropTypes.number,
     showCursor: React.PropTypes.bool,
@@ -95,7 +95,7 @@ ReactTypeInAndOut.propTypes = {
 
 ReactTypeInAndOut.defaultProps = {
     speed: 200,
-    delayRepeat: 2000,
+    delayRestart: 2000,
     delayStart: 0,
     delayOnWordFinish: 2000,
     showCursor: true,
