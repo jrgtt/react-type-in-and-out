@@ -5,7 +5,8 @@ class ReactTypeInAndOut extends React.Component {
     constructor (props) {
         super(props);
 
-        var words = props.words;
+        var words = props.words.slice();
+        var start = 0;
 
         words = words.reduce((acc, word) => {
 
@@ -22,10 +23,17 @@ class ReactTypeInAndOut extends React.Component {
 
         }, []);
 
+        var currentWord = words[0];
+
+        if (props.startFullWord) {
+            currentWord = props.words.slice(0, 1)[0];
+            start = words.indexOf(currentWord);
+        }
+
         this.state = {
             words: words,
-            currentWord: words[0],
-            start: 0,
+            currentWord: currentWord,
+            start: start,
             cursorAnimated: !!this.props.delayStart
         };
     }
@@ -44,7 +52,7 @@ class ReactTypeInAndOut extends React.Component {
                 cursorAnimated = true;
 
             // delay when word is fully typed and will regress
-            } else if (this.props.delayOnWordFinish && start > 1 && words[start - 1] === words[start + 1]) {
+            } else if (this.props.delayOnWordFinish && start >= 1 && words[start - 1] === words[start + 1]) {
                 clearInterval(running);
                 setTimeout(this.startTyping.bind(this, words), this.props.delayOnWordFinish);
                 cursorAnimated = true;
@@ -90,16 +98,18 @@ ReactTypeInAndOut.propTypes = {
     delayStart: React.PropTypes.number,
     delayOnWordFinish: React.PropTypes.number,
     showCursor: React.PropTypes.bool,
-    className: React.PropTypes.string
+    className: React.PropTypes.string,
+    startFullWord: React.PropTypes.bool
 };
 
 ReactTypeInAndOut.defaultProps = {
-    speed: 200,
-    delayRestart: 2000,
+    speed: 150,
+    delayRestart: 0,
     delayStart: 0,
-    delayOnWordFinish: 2000,
+    delayOnWordFinish: 0,
     showCursor: true,
-    className: 'react-type-in-and-out'
+    className: 'react-type-in-and-out',
+    startFullWord: false
 };
 
 export default ReactTypeInAndOut;
