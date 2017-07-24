@@ -7,7 +7,7 @@ __Component to simulate the effect of typing in and typing out of a text__
 
 Live demo: [JRigotti.github.io/react-type-in-and-out](http://JRigotti.github.io/react-type-in-and-out/)
 
-To build the examples locally, run:
+To try it locally: clone this repo, cd into it and build the examples with the following commands:
 
 ```
 npm install
@@ -19,9 +19,7 @@ Then open [`localhost:8000`](http://localhost:8000) in a browser.
 
 ## Installation
 
-The easiest way to use react-type-in-and-out is to install it from NPM and include it in your own React build process (using [Browserify](http://browserify.org), [Webpack](http://webpack.github.io/), etc).
-
-You can also use the standalone build by including `dist/react-type-in-and-out.js` in your page. If you use this, make sure you have already included React, and it is available as a global variable.
+You can get ReactTypeInAndOut from NPM and include it in your project with your build tool of preference (such as [Browserify](http://browserify.org), [Webpack](http://webpack.github.io/), etc).
 
 ```
 npm install react-type-in-and-out --save
@@ -30,12 +28,16 @@ npm install react-type-in-and-out --save
 
 ## Usage
 
-__EXPLAIN USAGE HERE__
+The minimal usage of this component can be done through passing a list of words you want to rotate. You can also control the typing speed, delays between words and a few otheroptions described in the properties section below.
 
 ```
 var ReactTypeInAndOut = require('react-type-in-and-out');
+// or
+import ReactTypeInAndOut from 'react-type-in-and-out';
 
-<ReactTypeInAndOut />
+<ReactTypeInAndOut
+    words{['React', 'type', 'in', 'and', 'out']}
+/>
 ```
 
 ### Properties
@@ -59,15 +61,6 @@ var ReactTypeInAndOut = require('react-type-in-and-out');
 * `className + '__icon--animated'` by default `'react-type-in-and-out__icon--animated'` is an added class to the icon when the cursor starts blinking
 * Speed and delay properties are all in milliseconds
 
-
-## Development (`src`, `lib` and the build process)
-
-**NOTE:** The source code for the component is in `src`. A transpiled CommonJS version (generated with Babel) is available in `lib` for use with node.js, browserify and webpack. A UMD bundle is also built to `dist`, which can be included without the need for any build system.
-
-To build, watch and serve the examples (which will also watch the component source), run `npm start`. If you just want to watch changes to `src` and rebuild `lib`, run `npm run watch` (this is useful if you are working with `npm link`).
-
 ## License
-
-__PUT LICENSE HERE__
 
 [MIT](./LICENSE) (c) 2017 Jean Rigotti.
