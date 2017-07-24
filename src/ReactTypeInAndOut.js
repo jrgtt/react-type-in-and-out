@@ -101,14 +101,14 @@ class ReactTypeInAndOut extends React.Component {
 }
 
 ReactTypeInAndOut.propTypes = {
-    words: React.PropTypes.arrayOf(React.PropTypes.string),
-    speed: React.PropTypes.number,
+    className: React.PropTypes.string,
+    delayOnWordFinish: React.PropTypes.number,
     delayRestart: React.PropTypes.number,
     delayStart: React.PropTypes.number,
-    delayOnWordFinish: React.PropTypes.number,
     showCursor: React.PropTypes.bool,
-    className: React.PropTypes.string,
-    startFullWord: React.PropTypes.bool
+    speed: React.PropTypes.number,
+    startFullWord: React.PropTypes.bool,
+    words: React.PropTypes.arrayOf(React.PropTypes.string)
 };
 
 ReactTypeInAndOut.defaultProps = {
