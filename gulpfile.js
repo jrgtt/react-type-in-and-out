@@ -12,30 +12,34 @@ var initGulpTasks = require('react-component-gulp-tasks');
 
 var taskConfig = {
 
-	component: {
-		name: 'ReactTypeInAndOut',
-		dependencies: [
-			'classnames',
-			'react',
-			'react-dom'
-		],
-		lib: 'lib'
-	},
+    component: {
+        name: 'ReactTypeInAndOut',
+        dependencies: [
+            'classnames',
+            'react',
+            'react-dom'
+        ],
+        lib: 'lib',
+        less: {
+            path: 'less/',
+            entry: 'react-type-in-and-out.less'
+        }
+    },
 
-	example: {
-		src: 'example/src',
-		dist: 'example/dist',
-		files: [
-			'index.html',
-			'.gitignore'
-		],
-		scripts: [
-			'example.js'
-		],
-		less: [
-			'example.less'
-		]
-	}
+    example: {
+        src: 'example/src',
+        dist: 'example/dist',
+        files: [
+            'index.html',
+            '.gitignore'
+        ],
+        scripts: [
+            'example.js'
+        ],
+        less: [
+            'example.less'
+        ]
+    }
 
 };
 
