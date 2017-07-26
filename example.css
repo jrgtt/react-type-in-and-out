@@ -56,7 +56,7 @@ label {
   font-size: 40px;
 }
 .react-type-in-and-out__icon--animated {
-  animation: blinking-cursor 0.8s step-end 0.8s infinite;
+  animation: blinking-cursor 0.8s step-end 0s infinite;
 }
 @-moz-keyframes blinking-cursor {
   0% {
