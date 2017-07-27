@@ -28,7 +28,7 @@ npm install react-type-in-and-out --save
 
 ## Usage
 
-The minimal usage of this component can be done through passing a list of words you want to rotate. You can also control the typing speed, delays between words and a few otheroptions described in the properties section below.
+The minimal usage of this component can be done through passing a list of words you want to rotate. You can also control the typing speed, delays between words and a few other options described in the properties section below.
 
 ```js
 import ReactTypeInAndOut from 'react-type-in-and-out';
